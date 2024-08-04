@@ -13,10 +13,10 @@ function App() {
   const [isOpen, setIsOpen] = useState(true);
 
   function handlePervious() {
-    step > 1 && setSteps(step - 1);
+    step > 1 && setSteps((prevStep) => prevStep - 1);
   }
   function handleNext() {
-    step <= 2 && setSteps(step + 1);
+    step <= 2 && setSteps((prevStep) => prevStep + 1);
 
     //BAD PRACTICE
     // user.name = "test1";
@@ -25,7 +25,7 @@ function App() {
   }
 
   function handleIsOpen() {
-    setIsOpen(!isOpen);
+    setIsOpen((prevIsOpen) => !prevIsOpen);
   }
 
   return (
