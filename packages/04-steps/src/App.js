@@ -8,15 +8,19 @@ const messages = [
 ];
 
 function App() {
-  let [step, setSteps] = useState(1);
+  const [step, setSteps] = useState(1);
+  const [user, setUser] = useState({ name: "john" });
 
   function handlePervious() {
     step > 1 && setSteps(step - 1);
   }
   function handleNext() {
-    // step <= 2 && setSteps(step + 1);
+    step <= 2 && setSteps(step + 1);
 
-    step = step + 1;
+    //BAD PRACTICE
+    // user.name = "test1";
+
+    setUser({ name: "terry" });
   }
 
   return (
@@ -29,6 +33,7 @@ function App() {
 
       <p className="message">
         step:{step} {messages[step - 1]}
+        <div>{user.name}</div>
       </p>
 
       <div className="buttons">
