@@ -8,13 +8,15 @@ const messages = [
 ];
 
 function App() {
-  const [step, setSteps] = useState(1);
+  let [step, setSteps] = useState(1);
 
   function handlePervious() {
     step > 1 && setSteps(step - 1);
   }
   function handleNext() {
-    step <= 2 && setSteps(step + 1);
+    // step <= 2 && setSteps(step + 1);
+
+    step = step + 1;
   }
 
   return (
