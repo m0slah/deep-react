@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./app.css";
 
 const messages = [
@@ -8,21 +8,21 @@ const messages = [
 ];
 
 function App() {
-  let step = 3;
+  const [step, setSteps] = useState(1);
 
   function handlePervious() {
-    console.log("prev");
+    step > 1 && setSteps(step - 1);
   }
   function handleNext() {
-    console.log("prev");
+    step <= 2 && setSteps(step + 1);
   }
 
   return (
     <div className="steps">
       <div className="numbers">
-        <div className={`${step >= 1 ? "active" : ""}`}>1</div>
-        <div className={`${step >= 2 ? "active" : ""}`}>2</div>
-        <div className={`${step >= 3 ? "active" : ""}`}>3</div>
+        <div className={step >= 1 ? "active" : ""}>1</div>
+        <div className={step >= 2 ? "active" : ""}>2</div>
+        <div className={step >= 3 ? "active" : ""}>3</div>
       </div>
 
       <p className="message">
