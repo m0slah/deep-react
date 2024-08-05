@@ -5,6 +5,7 @@ function App() {
     <>
       <Logo />
       <Form />
+      <PackingList />
     </>
   );
 }
@@ -23,6 +24,14 @@ function Form() {
       <div className="add-form">
         <h3>what do you need for your 😍 trip?</h3>
       </div>
+    </>
+  );
+}
+
+function PackingList() {
+  return (
+    <>
+      <div className="list">List</div>
     </>
   );
 }
