@@ -4,7 +4,7 @@ import "./index.css";
 const initialItems = [
   { id: 1, description: "Passports", quantity: 2, packed: false },
   { id: 2, description: "Socks", quantity: 12, packed: true },
-  { id: 2, description: "Charger", quantity: 1, packed: false },
+  { id: 3, description: "Charger", quantity: 1, packed: false },
 ];
 
 function App() {
@@ -27,11 +27,26 @@ function Logo() {
 }
 
 function Form() {
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    console.log(event);
+  }
+
   return (
     <>
-      <div className="add-form">
+      <form className="add-form" onSubmit={handleSubmit}>
         <h3>what do you need for your 😍 trip?</h3>
-      </div>
+        <select>
+          {Array.from({ length: 20 }, (_, i) => i + 1).map((i) => (
+            <option key={i} value={i}>
+              {i}
+            </option>
+          ))}
+        </select>
+        <input type="text" placeholder="Item..." />
+        <button type="submit">add</button>
+      </form>
     </>
   );
 }
