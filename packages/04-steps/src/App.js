@@ -8,13 +8,29 @@ const messages = [
 ];
 
 function App() {
+  return (
+    <div>
+      <Steps />
+      <Steps />
+    </div>
+  );
+}
+
+function Steps() {
   const [step, setSteps] = useState(1);
-  // const [user, setUser] = useState({ name: "john" });
   const [isOpen, setIsOpen] = useState(true);
+
+  console.log("component was rendered");
+  console.log(step);
+
+  // const [user, setUser] = useState({ name: "john" });
 
   function handlePervious() {
     step > 1 && setSteps((prevStep) => prevStep - 1);
+
+    console.log("prev fn rendered");
   }
+
   function handleNext() {
     step <= 2 && setSteps((prevStep) => prevStep + 1);
 
@@ -22,6 +38,7 @@ function App() {
     // user.name = "test1";
 
     // setUser({ name: "terry" });
+    console.log("next fn rendered");
   }
 
   function handleIsOpen() {
