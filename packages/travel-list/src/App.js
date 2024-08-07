@@ -86,7 +86,7 @@ function Form({ onAddItem }) {
   );
 }
 
-function PackingList({ items, onDeleteItem, onChangePacked }) {
+function PackingList({ items, onDeleteItem, onToggleItem }) {
   return (
     <div className="list">
       <ul>
@@ -95,7 +95,7 @@ function PackingList({ items, onDeleteItem, onChangePacked }) {
             item={item}
             key={item.id}
             onDeleteItem={onDeleteItem}
-            onChangePacked={onChangePacked}
+            onToggleItem={onToggleItem}
           />
         ))}
       </ul>
@@ -103,12 +103,12 @@ function PackingList({ items, onDeleteItem, onChangePacked }) {
   );
 }
 
-function Item({ item, onDeleteItem, onChangePacked }) {
+function Item({ item, onDeleteItem, onToggleItem }) {
   return (
     <li>
       <input
         type="checkbox"
-        onClick={() => onChangePacked(item.id)}
+        onClick={() => onToggleItem(item.id)}
         value={item.packed}
       />
       <span style={item.packed ? { textDecoration: "line-through" } : {}}>
