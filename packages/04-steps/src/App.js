@@ -11,7 +11,6 @@ function App() {
   return (
     <div>
       <Steps />
-      <Steps />
     </div>
   );
 }
@@ -65,22 +64,37 @@ function Steps() {
           </p>
 
           <div className="buttons">
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#fff" }}
-              onClick={handlePervious}
+            <Button
+              backgroundColor="#7950f2"
+              color="#fff"
+              onHandleClick={handlePervious}
             >
-              Prevoius
-            </button>
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#fff" }}
-              onClick={handleNext}
+              <span>👈</span> Previous
+            </Button>
+            <Button
+              backgroundColor="#7950f2"
+              color="#fff"
+              onHandleClick={handleNext}
             >
-              Next
-            </button>
+              Next <span>👉</span>
+            </Button>
           </div>
         </div>
       )}
     </>
+  );
+}
+
+function Button({ backgroundColor, color, onHandleClick, children }) {
+  return (
+    <div>
+      <button
+        style={{ backgroundColor: backgroundColor, color: color }}
+        onClick={onHandleClick}
+      >
+        {children}
+      </button>
+    </div>
   );
 }
 
